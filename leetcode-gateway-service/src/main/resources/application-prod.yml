@@ -1,0 +1,37 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos:8848
+    gateway:
+      routes:
+        - id: leetcode-user-service
+          uri: lb://leetcode-user-service
+          predicates:
+            - Path=/api/user/**
+        - id: leetcode-question-service
+          uri: lb://leetcode-question-service
+          predicates:
+            - Path=/api/question/**
+        - id: leetcode-judge-service
+          uri: lb://leetcode-judge-service
+          predicates:
+            - Path=/api/judge/**
+        - id: leetcode-sandbox-service
+          uri: lb://leetcode-sandbox-service
+          predicates:
+            - Path=/api/sandbox/**
+  application:
+    name: leetcode-gateway-service
+  main:
+    web-application-type: reactive
+server:
+  port: 8101
+knife4j:
+  gateway:
+    enabled: true
+    strategy: discover
+    discover:
+      enabled: true
+      version: swagger2
+

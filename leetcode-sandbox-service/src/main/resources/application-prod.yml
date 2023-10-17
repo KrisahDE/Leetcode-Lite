@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql:3306/my_db
+    username: root
+    password: 123456
+  redis:
+    database: 1
+    host: localhost
+    port: 6379
+    timeout: 5000
+    password: 123456
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    password: guest
+    username: guest
+
+codesandbox:
+  type: native
